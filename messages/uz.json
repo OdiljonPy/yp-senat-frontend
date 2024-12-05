@@ -1,0 +1,78 @@
+{
+    "Header": {
+        "tel": "Telefon",
+        "address": "Manzil",
+        "about": "Biz haqimizda",
+        "commissions": "Kengash",
+        "news": "Yangiliklar",
+        "appeal": "Murojatlar",
+        "surveys": "So'rovnomalar",
+        "alwaysCommissions": "Doimiy kommissiyalar",
+        "regionalCommissions": "Parlament a'zolari"
+    },
+    "Footer": {
+        "news": "Yangiliklar",
+        "questions": "Ko'p beriladigan savollar",
+        "videos": "Video Lavhalar",
+        "address": "Manzil",
+        "tel": "Telefon",
+        "email": "Email",
+        "retryConnect": "Qayta aloqa",
+        "socialMedia": "Ijtimoiy tarmoqlar",
+        "subscribe": "Subscribe",
+        "copyright": "© 2024. Barcha huquqlar himoyalangan.",
+        "normative_documents": "Normative xujjatlar"
+    },
+    "Breadcrumb": {
+        "mainPage": "Bosh sahifa",
+        "standingCommissions": "Doimiy komissiyalar",
+        "regionalCommissions": "Parlament a'zolari",
+        "surveys": "So'rovnomalar",
+        "appeals": "Murojatlar",
+        "news": "Yangiliklar",
+        "projects": "Loyihalar"
+    },
+    "News": {
+        "title": "Yangiliklar",
+        "hero_title": "Yoshlar tadbirkorligini qo‘llab-quvvatlash dasturi yo‘lga qo‘yildi",
+        "hero_detail_title": "Yoshlar parlamenti: Yoshlar ovozini eshitish va ularning kelajagini shakllantirish maydoni",
+        "all": "Hammasi"
+    },
+    "Appeals": {
+        "title": "Murojatlar",
+        "leave_message": "Murojaat qoldiring",
+        "name": "Ism",
+        "phone": "Telefon raqam",
+        "email": "Electron pochta",
+        "subject": "Mavzu",
+        "send": "Yuborish",
+        "loading": "Murojaat yuborilmoqda...",
+        "success": "Murojaat muvaffaqiyatli yuborildi!",
+        "error": "Murojaat yuborishda xatolik yuz berdi.",
+        "validation": "Iltimos, barcha maydonlarni to'g'ri to'ldiring.",
+        "validation_name": "Ism kiritish majburiy",
+        "validation_email": "Email manzil noto'g'ri formatda",
+        "validation_phone": "Telefon raqam noto'g'ri formatda",
+        "validation_subject": "Mavzu kiritish majburiy",
+        "apply": "Murojaat berish",
+        "appeal_desc": "Yoshlar Parlamentiga o‘z takliflaringiz va g‘oyalaringizni yuboring! Sizning fikр va tashabbусlaringiz yoshlarning farovonligi va imkoniyatlarini oshirishda muhim ahamiyatga ega.",
+        "resolved": "Hal qilingan arizalar",
+        "incoming": "Kelib tushgan arizalar",
+        "explained": "Huquqiy tushuntirish berildi",
+        "rejected": "Rad etilgan arizalar"
+    },
+    "Global": {
+        "useful_links": "Foydali havolalar",
+        "more": "Batafsil",
+        "next": "Keyingi",
+        "prev": "Oldingi"
+    },
+    "Commission": {
+        "title": "Doimiy Komissiyalar",
+        "regional": "Xududiy komissiyalar"
+    },
+    "Projects": {
+        "title": "Loyihalar",
+        "more": "Batafsil"
+    }
+}

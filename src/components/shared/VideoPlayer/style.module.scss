@@ -1,0 +1,27 @@
+/* Tugmalar uchun asosiy styling */
+.vjs-prev-button,
+.vjs-next-button {
+  background: #444;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vjs-prev-button:hover,
+.vjs-next-button:hover {
+  background: #1e90ff;
+}
+
+.vjs-prev-button:before {
+  content: "⟨"; /* Previous icon */
+}
+
+.vjs-next-button:before {
+  content: "⟩"; /* Next icon */
+}

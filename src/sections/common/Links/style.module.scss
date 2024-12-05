@@ -1,0 +1,111 @@
+.links {
+  padding: 106px 0;
+  background-color: var(--gray-light);
+
+  .content {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    .item {
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.07);
+      background: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .imageBox {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-right: 35px;
+        margin-bottom: 16px;
+
+        b {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 150%;
+          text-transform: capitalize;
+          color: #2c2b38;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          line-clamp: 3;
+          -webkit-box-orient: vertical;
+          box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      .linkBox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 16px;
+        background: #e0e3eb;
+        border-radius: 12px;
+
+        p {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 150%;
+          color: #2c2b38;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .links {
+    padding: 56px 0px;
+
+    .content {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+
+      .item {
+        padding: 15px 10px;
+
+        .imageBox {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          b {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 641px) and (max-width: 992px) {
+  .links {
+    padding: 56px 0px;
+
+    .content {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .item {
+        padding: 15px 10px;
+
+        .imageBox {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          b {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

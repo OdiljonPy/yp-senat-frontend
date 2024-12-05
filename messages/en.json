@@ -1,0 +1,78 @@
+{
+    "Header": {
+        "tel": "Phone",
+        "address": "Address",
+        "about": "About Us",
+        "commissions": "Council",
+        "news": "News",
+        "appeal": "Appeals",
+        "surveys": "Surveys",
+        "alwaysCommissions": "Permanent Commissions",
+        "regionalCommissions": "Members of Parliament"
+    },
+    "Footer": {
+        "news": "News",
+        "questions": "Frequently Asked Questions",
+        "videos": "Video Materials",
+        "address": "Address",
+        "tel": "Phone",
+        "email": "Email",
+        "retryConnect": "Reconnect",
+        "socialMedia": "Social Media",
+        "subscribe": "Subscribe",
+        "copyright": "© 2024. All rights reserved.",
+        "normative_documents": "Normative documents"
+    },
+    "Breadcrumb": {
+        "mainPage": "Main page",
+        "standingCommissions": "Standing commissions",
+        "regionalCommissions": "Members of Parliament",
+        "surveys": "Surveys",
+        "appeals": "Appeals",
+        "news": "News",
+        "projects": "Projects"
+    },
+    "News": {
+        "title": "News",
+        "hero_title": "Youth entrepreneurship support program launched",
+        "hero_detail_title": "Youth Parliament: A space for young people to have their voices heard and shape their future",
+        "all": "All"
+    },
+    "Appeals": {
+        "title": "Appeals",
+        "leave_message": "Leave a message",
+        "name": "Name",
+        "phone": "Phone number",
+        "email": "Email",
+        "subject": "Subject",
+        "send": "Send",
+        "loading": "Sending request...",
+        "success": "The request was sent successfully!",
+        "error": "There was an error sending the request.",
+        "validation": "Please fill out all fields correctly.",
+        "validation_name": "Name is required.",
+        "validation_email": "Email is an invalid format.",
+        "validation_phone": "The phone number is in the wrong format.",
+        "validation_subject": "Subject is required.",
+        "apply": "Apply",
+        "appeal_desc": "Send your suggestions and ideas to the Youth Parliament! Your ideas and initiatives are important in improving the well-being and opportunities of young people.",
+        "resolved": "Resolved applications",
+        "incoming": "Incoming applications",
+        "explained": "Legal explanation provided",
+        "rejected": "Rejected applications"
+    },
+    "Global": {
+        "useful_links": "Useful links",
+        "more": "More details",
+        "next": "Next",
+        "prev": "Prev"
+    },
+    "Commission": {
+        "title": "Standing Commissions",
+        "regional": "Regional commissions"
+    },
+    "Projects": {
+        "title": "Projects",
+        "more": "More details"
+    }
+}

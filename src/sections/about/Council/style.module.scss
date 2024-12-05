@@ -1,0 +1,43 @@
+.council {
+  padding-bottom: 72px;
+
+  .content {
+    margin-top: 56px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(286px, 1fr));
+    gap: 24px;
+
+    .card {
+      padding: 10px;
+      box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.07);
+      border-radius: 12px;
+
+      img {
+        width: 266px;
+        height: 172px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+
+      h4 {
+        padding: 16px 6px;
+        font-weight: 500;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: var(--primary-black);
+      }
+
+      p {
+        padding: 0 16px 0 6px;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        text-transform: capitalize;
+        color: var(--primary-black);
+        opacity: 0.7;
+      }
+    }
+  }
+}

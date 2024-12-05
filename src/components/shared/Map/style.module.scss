@@ -1,0 +1,10 @@
+.map {
+  path {
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+      fill: var(--primary-black);
+    }
+  }
+}

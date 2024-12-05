@@ -1,0 +1,105 @@
+.dropdownList {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: -30px;
+    border-radius: 32px;
+
+    width: 100px;
+    max-height: 446px;
+    overflow-y: auto;
+    z-index: 50;
+
+    background-color: rgba(44, 43, 56, 0.7);
+    backdrop-filter: blur(30px);
+    padding: 0 18px 0;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.dropdownItem {
+    gap: 11px;
+    padding: 14px 0;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
+
+.mobileMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1.5rem;
+    cursor: pointer;
+    z-index: 99999999;
+    width: 100vw;
+    height: 80vh;
+    border-radius: 0 0 24px 24px;
+    padding: 0px 16px 24px 16px;
+    background: #2c2b38;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    transform: translateY(-100%);
+
+    &.open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .langs {
+        color: rgba(255, 255, 255, 0.7);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 0;
+
+        .lang {
+            padding: 0 31px;
+
+            &:nth-child(2) {
+                border-right: 1px solid rgba(255, 255, 255, 0.3);
+                border-left: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            &.active {
+                color: #fff;
+            }
+        }
+    }
+
+    .menus {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    span {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 143%;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (min-width: 640px) {
+        display: none;
+    }
+}

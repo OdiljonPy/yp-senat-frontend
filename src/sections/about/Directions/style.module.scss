@@ -1,0 +1,38 @@
+.directions {
+  padding-top: 72px;
+
+  .description {
+    margin-top: 56px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--primary-black);
+  }
+
+  .content {
+    display: flex;
+    align-content: center;
+    gap: 40px;
+
+    img {
+      object-fit: cover;
+      border-radius: 12px;
+      width: 560px;
+      height: 320px;
+    }
+
+    .right {
+      .list {
+        margin-top: 16px;
+        list-style: disc;
+        padding-left: 20px;
+
+        li {
+          font-weight: 400;
+          font-size: 20px;
+          color: var(--primary-black);
+        }
+      }
+    }
+  }
+}
