@@ -5,20 +5,24 @@ import HeroDetail from "@/sections/common/DetailHero";
 import Image from "next/image";
 import NewsCard from "@/components/shared/NewsCard";
 import { useApiQuery } from "@/hooks/useApi";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { NewsDetailResponse } from "@/types/news";
 import { stripHtml } from "@/lib/utils";
 
 const NewsDetail = () => {
   const { slug } = useParams();
+  const router = useRouter();
   const t = useTranslations('News')
   const links = [
     { title: "mainPage", path: "/" },
     { title: "news", path: "/news" },
   ];
   const { data } = useApiQuery<NewsDetailResponse>(`/post/${slug}/`);
-  const text =
-    "Yoshlar parlamenti: Yoshlar ovozini eshitish va ularning kelajagini shakllantirish maydoni";
+
+  const newsDetail = (slug: number) => {
+    router.push(`/news/${slug}`);
+  };
+
   return (
     <>
       <HeroDetail items={links} text={t('hero_detail_title')} type={1} />
@@ -65,21 +69,21 @@ const NewsDetail = () => {
               <div className="flex flex-col gap-7">
                 <div className="w-[80%] h-[1px] bg-[#2C2B38]"></div>
               </div>
-              <Image
+              {/* <Image
                 src={data?.result?.image || "/placeholder-image.jpg"}
                 width={560}
                 height={319}
                 className="rounded-[12px]"
                 alt={data?.result?.title || "News detail"}
-              />
+              /> */}
               <p className="text-[20px]">
                 {stripHtml(data?.result?.short_description)}
               </p>
             </div>
             <div className="basis-1/3">
-              <h2 className="text-[18px] font-semibold">Aloqador loyihalar</h2>
+              <h2 className="text-[18px] font-semibold">Aloqador Yangiliklar</h2>
               {data?.related_posts.map((item) => (
-                <div key={item.id} className="w-full mt-5">
+                <div onClick={() => newsDetail(item.id)} key={item.id} className="w-full mt-5">
                   <NewsCard data={item} isShow={false} />
                 </div>
               ))}

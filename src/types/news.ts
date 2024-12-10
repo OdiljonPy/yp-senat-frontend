@@ -14,6 +14,14 @@ interface NewsItem {
 }
 export interface NewsResponse {
   result: {
+    totalElements: number;
+    totalPages: number;
+    size: number;
+    number: number;
+    numberOfElements: number;
+    first: boolean;
+    last: boolean;
+    empty: boolean;
     content: NewsItem[];
   };
 }

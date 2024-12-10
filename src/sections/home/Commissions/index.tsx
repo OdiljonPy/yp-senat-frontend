@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { CommissionResponse } from "@/types";
 const Comissions = () => {
   const { data, isLoading } = useApiQuery<CommissionResponse>(`/commission/category/`);
-  const { setSelectedCommission } = useStore()
+  const { setSelectedCommission, selectedCommission } = useStore()
   const t = useTranslations('Commission')
   const router = useRouter()
   if (isLoading) {

@@ -30,7 +30,9 @@
         "surveys": "Surveys",
         "appeals": "Appeals",
         "news": "News",
-        "projects": "Projects"
+        "projects": "Projects",
+        "videos": "Video materials",
+        "normativeDocuments": "Normative documents"
     },
     "News": {
         "title": "News",

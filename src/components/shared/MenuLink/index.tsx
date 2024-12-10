@@ -63,7 +63,7 @@ const MenuLink = ({
           )}
         >
           <span>{t(title)}</span>
-          <Arrow isOpen={isOpen} />
+          <Arrow color={isApplicationPage ? "#000000B2" : "#FFFFFFB2"} isOpen={isOpen} />
         </button>
       ) : (
         <Link
@@ -87,18 +87,18 @@ const MenuLink = ({
       {menu && isOpen && (
         <div className={style.dropdownList} role="listbox">
           {menu.map((item, index) => (
-            <div
+            <Link
+              href={item.href}
               key={item.title}
               className={`${style.dropdownItem} `}
               onClick={() => {
                 onClose();
                 setSelectedCommission(Number(index), 0, item.id)
-                router.push(item.href);
               }}
             >
               <Image src={"/icons/users.svg"} alt="" width={24} height={24} />
               <p>{t(item.title)}</p>
-            </div>
+            </Link>
           ))}
         </div>
       )}

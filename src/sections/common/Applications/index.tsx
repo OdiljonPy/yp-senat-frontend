@@ -26,29 +26,29 @@ const Applications = () => {
   return (
     <section className={clsx("container", style.applications)}>
       <div className={style.content}>
-        <div className={style.item}>
+        <div data-aos="fade-up" className={style.item}>
           <h5>{data?.result.resolved_appeals}</h5>
           <p>{t('resolved')}</p>
         </div>
-        <div className={style.item}>
+        <div data-aos="fade-up" data-aos-delay="100" className={style.item}>
           <h5>{data?.result.incoming_appeals}</h5>
           <p>{t('incoming')}</p>
         </div>
-        <div className={style.item}>
+        <div data-aos="fade-up" data-aos-delay="200" className={style.item}>
           <h5>{data?.result.explained_appeals}</h5>
           <p>{t('explained')}</p>
         </div>
-        <div className={style.item}>
+        <div data-aos="fade-up" data-aos-delay="300" className={style.item}>
           <h5>{data?.result.rejected_appeals}</h5>
           <p>{t('rejected')}</p>
         </div>
       </div>
       <div className={style.right}>
-        <Title>{t('title')}</Title>
-        <p>
+        <Title data-aos="fade-up">{t('title')}</Title>
+        <p data-aos="fade-up">
           {t('appeal_desc')}
         </p>
-        <button onClick={moveAppeal}>{t('apply')}</button>
+        <button data-aos="fade-up" onClick={moveAppeal}>{t('apply')}</button>
       </div>
     </section>
   );

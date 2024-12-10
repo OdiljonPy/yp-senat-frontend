@@ -3,13 +3,8 @@ import { MenuItem, Slide } from "@/types";
 const menuItems: MenuItem[] = [
   {
     id: 1,
-    title: "about",
-    href: "/about",
-  },
-  {
-    id: 2,
-    title: "commissions",
-    href: "/commissions",
+    title: "parlament",
+    href: "",
     submenu: [
       {
         id: 1,
@@ -23,8 +18,25 @@ const menuItems: MenuItem[] = [
         title: "regionalCommissions",
         href: "/parliament",
         icon: "/icons/scales.svg",
+      },
+      {
+        id: 3,
+        title: "about",
+        href: "/about",
+        icon: "/icons/scales.svg",
+      },
+      {
+        id: 4,
+        title: "parlamentLeadership",
+        href: "/about#council",
+        icon: "/icons/scales.svg",
       }
-    ],
+    ]
+  },
+  {
+    id: 2,
+    title: "normative_documents",
+    href: "/normative-documents",
   },
   {
     id: 4,
@@ -33,13 +45,18 @@ const menuItems: MenuItem[] = [
   },
   {
     id: 5,
-    title: "appeal",
-    href: "/appeal",
+    title: "projects",
+    href: "/projects",
   },
   {
     id: 6,
     title: "surveys",
     href: "/surveys",
+  },
+  {
+    id: 7,
+    title: "contact",
+    href: "/questions",
   }
 ];
 

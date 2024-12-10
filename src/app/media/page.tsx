@@ -6,7 +6,7 @@ import { useApiQuery } from '@/hooks/useApi'
 import { VideoResponse } from '@/types/video'
 const Media = () => {
   const text = "Video Lavhalar"
-  const links = [{ title: "Bosh sahifa", path: "/" }, { title: "Video Lavhalar" }];
+  const links = [{ title: "mainPage", path: "/" }, { title: "videos", path: "/media" }];
   const { data, isLoading, error } = useApiQuery<VideoResponse>(
     "/video/",
   );

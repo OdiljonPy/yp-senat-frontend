@@ -24,7 +24,7 @@ const Applications = () => {
   const t = useTranslations('Appeals')
   const [formData, setFormData] = useState<FormData>({
     full_name: "",
-    phone_number: "",
+    phone_number: "+998",
     email: "",
     message: "",
   });
@@ -33,13 +33,26 @@ const Applications = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === "phone_number") {
-      let phoneValue = value;
-      if (!phoneValue.startsWith("+998")) {
-        phoneValue = "+998" + phoneValue.replace(/\D/g, "").slice(0, 9);
-      } else {
-        phoneValue = phoneValue.slice(0, 13);
+      let phoneValue = value.replace(/\D/g, "").slice(0, 12);
+      let formattedPhone = "+998";
+
+      if (!phoneValue.startsWith("998")) {
+        phoneValue = "998" + phoneValue;
       }
-      setFormData({ ...formData, [name]: phoneValue });
+      if (phoneValue.length > 3) {
+        formattedPhone += ` (${phoneValue.slice(3, 5)}`;
+      }
+      if (phoneValue.length > 5) {
+        formattedPhone += `) ${phoneValue.slice(5, 8)}`;
+      }
+      if (phoneValue.length > 8) {
+        formattedPhone += `-${phoneValue.slice(8, 10)}`;
+      }
+      if (phoneValue.length > 10) {
+        formattedPhone += `-${phoneValue.slice(10, 12)}`;
+      }
+
+      setFormData({ ...formData, [name]: formattedPhone });
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -49,11 +62,8 @@ const Applications = () => {
     if (!formData.full_name.trim()) {
       newErrors.full_name = t('validation_name');
     }
-    if (!formData.phone_number.match(/^\+998\d{9}$/)) {
+    if (!formData.phone_number.match(/^\+998\s?\(\d{2}\)\s?\d{3}-\d{2}-\d{2}$/)) {
       newErrors.phone_number = t('validation_phone');
-    }
-    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      newErrors.email = t('validation_email');
     }
     if (!formData.message.trim()) {
       newErrors.message = t('validation_subject');
@@ -61,19 +71,24 @@ const Applications = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       try {
+        const formattedData = {
+          ...formData,
+          phone_number: formatPhoneNumber(formData.phone_number),
+        };
         await toast.promise(
-          mutation.mutateAsync(formData),
+          mutation.mutateAsync(formattedData),
           {
             loading: t('loading'),
             success: t('success'),
             error: t('error'),
           }
         );
-        setFormData({ full_name: "", phone_number: "", email: "", message: "" });
+        setFormData({ full_name: "", phone_number: "+998", email: "", message: "" });
       } catch (error) {
         console.error("Error submitting form:", error);
       }
@@ -82,13 +97,16 @@ const Applications = () => {
     }
   };
 
+  const formatPhoneNumber = (phone: string): string => {
+    return phone.replace(/[\s()-]/g, "");
+  };
+
   const elements = [
     { title: "mainPage", path: "/" },
     { title: "appeals", path: "/appeals" },
   ];
 
-  const googleMapsUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434508616!2d144.95605431550464!3d-37.81720997975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d6c5a3d6bcb5!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1638368973679!5m2!1sen!2sau`;
-
+  const googleMapsUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1902.0195047210639!2d69.27072441899185!3d41.30758629894644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b005729f72f%3A0x3e7b6d1fd781628f!2sSenate%20of%20Uzbekistan!5e0!3m2!1sen!2s!4v1733605729529!5m2!1sen!2s`;
   return (
     <section>
       <Toaster position="top-right" />
@@ -114,9 +132,8 @@ const Applications = () => {
                 </div>
                 <div>
                   <input
-                    type="tel"
+                    type="text"
                     name="phone_number"
-                    placeholder={t('phone')}
                     value={formData.phone_number}
                     onChange={handleInputChange}
                     className="w-full rounded-lg border-[1px] border-[#D0D5DD] p-[16px] outline-none"

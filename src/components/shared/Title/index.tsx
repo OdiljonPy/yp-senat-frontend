@@ -9,7 +9,7 @@ interface Props {
   size?: "sm" | "md" | "lg";
 }
 
-const Title = ({ children, className, centred, size = "md" }: Props) => {
+const Title = ({ children, className, centred, size = "md", ...props }: Props) => {
   return (
     <h2
       className={clsx(
@@ -18,6 +18,7 @@ const Title = ({ children, className, centred, size = "md" }: Props) => {
         className,
         centred && "text-center"
       )}
+      {...props}
     >
       {children}
     </h2>

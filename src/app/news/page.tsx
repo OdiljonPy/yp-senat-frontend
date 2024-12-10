@@ -11,7 +11,7 @@ import {
   NewsCategoryResponse,
   NewsResponse,
 } from "@/types/news";
-import LoadingScreen from "@/components/shared/LoadingScreen";
+import Pagination from "@/components/shared/Pagination";
 const News = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,32 +26,20 @@ const News = () => {
   const {
     data: news,
     isLoading,
-    error,
   } = useApiQuery<NewsResponse>("/posts/", {
     page: currentPage,
     page_size: 6,
     ...(activeTab !== 0 ? { category_id: activeTab } : {}),
   });
-  if (isLoading) {
-    return <LoadingScreen />
-  }
-  if (error) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        Xatolik yuz berdi: {error.message}
-      </div>
-    );
-  }
+
   const newsDetail = (slug: number) => {
     router.push(`/news/${slug}`);
   };
   const links = [{ title: "mainPage", path: "/" }, { title: "news", path: "/news" }];
-  const text =
-    "Yoshlar tadbirkorligini qo‘llab-quvvatlash dasturi yo‘lga qo‘yildi";
 
   return (
     <>
-      <MainHero items={links} type={1} text={t('hero_title')} />
+      <MainHero isShowBtn={false} items={links} type={1} text={t('hero_title')} />
       <section className="container">
         <div className="pb-[56px] md:pb-[106px] pt-[10px]">
           <h1 className="text-[20px] md:text-[28px] lg:text-[36px] text-[#2C2B38] mb-[24px] md:mb-[36px] font-bold">
@@ -76,11 +64,24 @@ const News = () => {
             ))}
           </ul>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-[40px] md:mt-[56px]">
-            {news?.result?.content.map((item) => (
-              <div key={item.id} onClick={() => newsDetail(item.id)}>
-                <NewsCard data={item} isShow={true} />
-              </div>
-            ))}
+            {
+              isLoading && (new Array(6).fill(0).map((_, i) => (
+                <NewsCard isLoading={isLoading} isShow key={i} data={{} as any} />
+              )))
+            }
+            {
+              !isLoading && (
+                news?.result?.content.map((item) => (
+                  <div key={item.id} onClick={() => newsDetail(item.id)}>
+                    <NewsCard data={item} isShow={true} />
+                  </div>
+                ))
+              )
+            }
+          </div>
+
+          <div className="flex justify-end mt-[56px]">
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={news?.result.totalPages || 1} />
           </div>
         </div>
       </section>

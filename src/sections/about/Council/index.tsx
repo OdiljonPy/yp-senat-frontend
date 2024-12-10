@@ -30,8 +30,8 @@ const Council = () => {
     );
   }
   return (
-    <section className={clsx("container", style.council)}>
-      <Title size="sm">Palata kengashi</Title>
+    <section id="council" className={clsx("container", style.council)}>
+      <Title size="sm">Parlament rahbariyati</Title>
       <div className={style.content}>
         {data?.result.content.map((item) => (
           <div className={style.card} key={item.id}>

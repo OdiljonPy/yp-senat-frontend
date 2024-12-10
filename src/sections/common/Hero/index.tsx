@@ -26,13 +26,13 @@ const HeroCommissions = ({ surveys = false, categories, search, setSearch, title
   const toggleDropdown = useCallback(() => setIsOpen((prev) => !prev), []);
 
   const onSelect = (index: number, id: number) => {
-    setSelectedCommission(0, index, id);
+    setSelectedCommission(1, index, id);
     setIsOpen(false);
   }
 
   useEffect(() => {
-    if (selectedCategory) {
-      setSelectedCommission(0, 0, selectedCategory.id)
+    if (selectedCommission.index && selectedCommission.id) {
+      setSelectedCommission(0, selectedCommission.index, selectedCommission.id)
     }
   }, [])
 
@@ -93,21 +93,23 @@ const HeroCommissions = ({ surveys = false, categories, search, setSearch, title
               {isOpen && (
                 <div className={style.dropdownList} role="listbox">
                   {
-                    categories?.result.map((item: any, index: number) => (
-                      <div
-                        key={item.id}
-                        className={clsx(
-                          style.dropdownItem,
-                          selectedCommission.index === index &&
-                          style.selected
-                        )}
-                        onClick={() => onSelect(index, item.id)}
-                        role="option"
-                        aria-selected={selectedCommission.index === index}
-                      >
-                        {item.name}
-                      </div>
-                    ))
+                    categories?.result.map((item: any, index: number) => {
+                      return (
+                        <div
+                          key={index}
+                          className={clsx(
+                            style.dropdownItem,
+                            selectedCommission.index === index &&
+                            style.selected
+                          )}
+                          onClick={() => onSelect(index, item.id)}
+                          role="option"
+                          aria-selected={selectedCommission.index === index}
+                        >
+                          {item.name}
+                        </div>
+                      )
+                    })
                   }
                 </div>
               )}

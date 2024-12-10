@@ -31,7 +31,6 @@ const Commissions = () => {
         page_size: 6
     };
 
-
     const { data: commissions } = useApiQuery<CommissionRes>(
         `/commission/`,
         queryParams,

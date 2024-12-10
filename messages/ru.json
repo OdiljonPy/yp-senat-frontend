@@ -30,7 +30,9 @@
         "surveys": "Опросы",
         "appeals": "Апелляции",
         "news": "Новости",
-        "projects": "Проекты"
+        "projects": "Проекты",
+        "videos": "Видео материалы",
+        "normativeDocuments": "Нормативные документы"
     },
     "News": {
         "title": "Новости",

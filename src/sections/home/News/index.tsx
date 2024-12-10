@@ -41,7 +41,7 @@ const News = () => {
           <Title>{t('title')}</Title>
           <ul className={style.types}>
             {category_lists.map((type) => (
-              <li
+              <li data-aos="fade-up"
                 onClick={() => setActiveTab(type.id)}
                 className={clsx(
                   style.type,

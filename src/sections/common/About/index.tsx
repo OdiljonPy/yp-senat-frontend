@@ -87,7 +87,7 @@ const About = ({
             slides.map((item, index) => {
               return (
                 <Image
-                  key={item.id}
+                  key={'bottom' + item.id}
                   src={item.image}
                   alt={`${item.id}`}
                   className="cursor-pointer"

@@ -58,7 +58,7 @@ const YouthCommissions: React.FC<Props> = ({
       <ul className="flex">
         {mandat?.result.map((item, i) => (
           <li
-            key={item.id + i}
+            key={item.id}
             className={
               i === selectedMandat
                 ? "text-[#2C2B38] font-bold text-[24px] cursor-pointer border-l-4 border-[black] px-4"
@@ -78,8 +78,8 @@ const YouthCommissions: React.FC<Props> = ({
         isParliament && (
           <div className={style.parliamentList}>
             {
-              data?.result.content.map((item, index) => (
-                <div className={style.parliamentItem} key={item.id + index}>
+              data?.result.content.map((item) => (
+                <div className={style.parliamentItem} key={item.id}>
                   <Image src={item.image} alt={item.full_name} width={172} height={172} className={style.image} />
                   <div className={style.cardContent}>
                     <b className={style.name}>{item.full_name}</b>
@@ -107,8 +107,8 @@ const YouthCommissions: React.FC<Props> = ({
         !isParliament && (
           <div className={style.commissionsList}>
             {
-              data?.result.content.map((item, index) => (
-                <div className={style.commission} key={item.id + index}>
+              data?.result.content.map((item) => (
+                <div className={style.commission} key={item.id}>
                   <Image src={item.image} alt={item.full_name} width={172} height={172} className={style.image} />
                   <div className={style.cardContent}>
                     <b>{item.full_name}</b>

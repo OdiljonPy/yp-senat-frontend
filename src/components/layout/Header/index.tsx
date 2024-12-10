@@ -76,7 +76,7 @@ const Header = () => {
                 className={clsx(
                   isApplicationPage ? "text-white-500" : "text-white-700"
                 )}
-                href="tel:+998110227031"
+                href={`tel:${get(data?.result, "phone_number", "")}`}
               >
                 {get(data?.result, "phone_number", "")}
               </Link>

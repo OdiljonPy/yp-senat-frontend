@@ -2,13 +2,17 @@
     "Header": {
         "tel": "Telefon",
         "address": "Manzil",
-        "about": "Biz haqimizda",
-        "commissions": "Kengash",
+        "about": "Parlament haqida",
         "news": "Yangiliklar",
         "appeal": "Murojatlar",
         "surveys": "So'rovnomalar",
-        "alwaysCommissions": "Doimiy kommissiyalar",
-        "regionalCommissions": "Parlament a'zolari"
+        "alwaysCommissions": "Kommissiyalar",
+        "regionalCommissions": "Parlament a'zolari",
+        "parlament": "Yoshlar parlamenti",
+        "parlamentLeadership": "Parlament rahbariyati",
+        "normative_documents": "Normativ xujjatlar",
+        "contact": "Aloqa",
+        "projects": "Loyihalar"
     },
     "Footer": {
         "news": "Yangiliklar",
@@ -21,7 +25,7 @@
         "socialMedia": "Ijtimoiy tarmoqlar",
         "subscribe": "Subscribe",
         "copyright": "© 2024. Barcha huquqlar himoyalangan.",
-        "normative_documents": "Normative xujjatlar"
+        "normative_documents": "Normativ xujjatlar"
     },
     "Breadcrumb": {
         "mainPage": "Bosh sahifa",
@@ -30,7 +34,9 @@
         "surveys": "So'rovnomalar",
         "appeals": "Murojatlar",
         "news": "Yangiliklar",
-        "projects": "Loyihalar"
+        "projects": "Loyihalar",
+        "videos": "Video lavhalar",
+        "normativeDocuments": "Normativ hujjatlar"
     },
     "News": {
         "title": "Yangiliklar",
@@ -54,7 +60,7 @@
         "validation_email": "Email manzil noto'g'ri formatda",
         "validation_phone": "Telefon raqam noto'g'ri formatda",
         "validation_subject": "Mavzu kiritish majburiy",
-        "apply": "Murojaat berish",
+        "apply": "Murojaat yuborish",
         "appeal_desc": "Yoshlar Parlamentiga o‘z takliflaringiz va g‘oyalaringizni yuboring! Sizning fikр va tashabbусlaringiz yoshlarning farovonligi va imkoniyatlarini oshirishda muhim ahamiyatga ega.",
         "resolved": "Hal qilingan arizalar",
         "incoming": "Kelib tushgan arizalar",

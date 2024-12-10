@@ -4,19 +4,19 @@ import HeroDetail from '@/sections/common/DetailHero'
 import { useTranslations } from 'next-intl'
 import DocumentGrid from '@/sections/normative-documents'
 const NormativeDocuments = () => {
-    const t = useTranslations("Footer")
-    const links = [
-        { title: "Bosh sahifa", path: "/" },
-        { title: t('normative_documents') },
-      ];
-      const text = t('normative_documents')
+  const t = useTranslations("Footer")
+  const links = [
+    { title: "mainPage", path: "/" },
+    { title: 'normativeDocuments', path: "/normative-documents" },
+  ];
+  const text = t('normative_documents')
   return (
     <>
-      <HeroDetail items={links} type={1} text={text}/>
+      <HeroDetail items={links} type={1} text={text} />
       <main className="bg-gray-50">
-      <DocumentGrid />
-       </main>
-      <Links/>
+        <DocumentGrid />
+      </main>
+      <Links />
     </>
   )
 }

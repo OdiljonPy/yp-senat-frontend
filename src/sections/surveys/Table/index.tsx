@@ -20,7 +20,6 @@ export default function SurveyTable({ data, currentPage, setCurrentPage }: Surve
     const handleViewResults = (result: string) => {
         setResult(result)
         setIsModalOpen(true);
-        console.log("result", result)
     };
 
     const handleCloseModal = () => {

@@ -64,7 +64,7 @@ const Regional = () => {
             {
               !isLoading && (
                 data?.result?.content.map((item) => (
-                  <li className={style.item} key={item.id}>
+                  <li data-aos="fade-up" className={style.item} key={item.id}>
                     <Image
                       className={style.image}
                       src={item.image}

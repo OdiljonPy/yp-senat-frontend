@@ -1,11 +1,15 @@
 "use client"
 import React from "react";
-import Title from "@/components/shared/Title";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
+import Title from "@/components/shared/Title";
+import LoadingScreen from "@/components/shared/LoadingScreen";
 import { useApiQuery } from "@/hooks/useApi";
 import style from "./style.module.scss";
-import { useTranslations } from "next-intl";
+import 'swiper/css';
 interface Links {
   id: number;
   link: string,
@@ -17,43 +21,58 @@ interface LinksResponse {
 }
 const Links = () => {
   const t = useTranslations("Global")
-  const { data, isLoading, error } = useApiQuery<LinksResponse>(
+  const { data, isLoading } = useApiQuery<LinksResponse>(
     "/base/additional/",
   );
   if (isLoading) {
-    return <div className="container mx-auto px-4 py-8">Yuklanmoqda...</div>;
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        Xatolik yuz berdi: {error.message}
-      </div>
-    );
+    return <LoadingScreen />;
   }
   return (
     <section className={style.links}>
       <div className="container">
         <Title centred>{t('useful_links')}</Title>
-        <div className={style.content}>
-          {data?.result.map((link) => {
-            return (
-              <Link
-                className={style.item}
-                href={link.link}
-                key={link.id}
-              >
-                <div className={style.imageBox}>
-                  <Image src="/images/oliy-majlis.png" alt="" width={81} height={46} />
-                  <b>{link.title}</b>
-                </div>
-                <div className={style.linkBox}>
-                  <Image src="/icons/link.svg" alt="" width={24} height={24} />
-                  <p>{link.link}</p>
-                </div>
-              </Link>
-            );
-          })}
+        <div >
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={24}
+            loop={true}
+            navigation
+            freeMode
+            className={style.content}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {
+              data?.result.map((link) => {
+                return (
+                  <SwiperSlide onClick={() => window.open(link.link, "_blank")} className={style.item} key={link.id}>
+                    <div className={style.imageBox}>
+                      <Image src="/images/oliy-majlis.png" alt="" width={81} height={46} />
+                      <b>{link.title}</b>
+                    </div>
+                    <div className={style.linkBox}>
+                      <Image src="/icons/link.svg" alt="" width={24} height={24} />
+                      <p>{link.link}</p>
+                    </div>
+                  </SwiperSlide>
+                );
+              })
+            }
+          </Swiper>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ const Projects = () => {
   );
   const projects = data?.result.content.slice(0, 4) || []
   if (isLoading) {
-    return <LoadingScreen/>
+    return <LoadingScreen />
   }
 
   if (error) {
@@ -30,7 +30,7 @@ const Projects = () => {
       </div>
     );
   }
-  const handleClick =(id:number)=>{
+  const handleClick = (id: number) => {
     router.push(`/projects/${id}`)
   }
   return (
@@ -48,7 +48,9 @@ const Projects = () => {
 
       <div className={style.content}>
         {projects.map((project) => (
-          <div className={style.project} key={project.id} onClick={()=>handleClick(project.id)}>
+          <div
+            data-aos="fade-up"
+            className={style.project} key={project.id} onClick={() => handleClick(project.id)}>
             <Image
               src={project.image}
               alt={project.name}
@@ -63,7 +65,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-    </section>
+    </section >
   );
 };
 

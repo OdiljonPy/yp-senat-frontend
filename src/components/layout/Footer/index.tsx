@@ -7,6 +7,7 @@ import { useApiMutation } from "@/hooks/useApi";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
+import { get } from "lodash";
 interface ProjectsResponse {
   result: {
     id: number,
@@ -106,7 +107,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-[13px]">
               <b>{t("tel")}:</b>
-              <Link href="tel:+998110227031">{data?.result?.phone_number}</Link>
+              <Link href={`tel:${get(data?.result, "phone_number", "")}`}>{data?.result?.phone_number}</Link>
             </div>
             <div className="flex items-center gap-[13px]">
               <b>{t("email")}:</b>
@@ -181,7 +182,7 @@ const Footer = () => {
           <p className=" text-white-900">
             {t("copyright")}
           </p>
-          <div className="flex items-center gap-3">
+          <div onClick={() => window.open("https://zerodev.uz/", "_blank")} className="flex cursor-pointer items-center gap-3">
             <p className="text-white-900">Powered by</p>
             <Image src="/images/zerodev-logo.png" alt="" width={85} height={20} />
           </div>

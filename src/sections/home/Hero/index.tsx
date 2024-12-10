@@ -39,10 +39,10 @@ const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, [currentSlide, data]);
 
   if (isLoading) {
-    return <LoadingScreen/>
+    return <LoadingScreen />
   }
 
   if (error) {
@@ -52,14 +52,14 @@ const Hero = () => {
       </div>
     );
   }
-  const handleClick =(id: number)=>{
+  const handleClick = (id: number) => {
     router.push(`/news/${id}`)
   }
   return (
     <section className={style.hero}>
-      {data?.result.map((slide, index) => (
+      {data?.result.map((slide, index) =>
         <div
-          key={slide.id + index}
+          key={slide.id}
           className={clsx(style.slide, currentSlide === index && style.active)}
           style={{
             background: `linear-gradient(180deg, #2c2b38 0%, rgba(44, 43, 56, 0) 100%), url(${slide.image})`,
@@ -83,10 +83,10 @@ const Hero = () => {
             </div>
 
             <h1>{slide.title}</h1>
-            <Button type="secondary" click={()=>handleClick(slide.id)}>{t('more')}</Button>
+            <Button type="secondary" click={() => handleClick(slide.id)}>{t('more')}</Button>
           </div>
         </div>
-      ))}
+      )}
       {data?.result?.length ? (
         <CarouselBottom
           length={data.result.length}
