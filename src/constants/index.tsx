@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
   {
     id: 7,
     title: "contact",
-    href: "/questions",
+    href: "/appeal",
   }
 ];
 

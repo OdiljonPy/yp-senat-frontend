@@ -1,0 +1,51 @@
+.contact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    .contactItem {
+        width: 100%;
+        padding: 30px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+
+        b {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        p,
+        a {
+            font-size: 14px;
+            color: #666;
+        }
+
+        svg {
+            color: var(--primary);
+        }
+
+        &:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-4px);
+
+            svg {
+                color: #fff;
+            }
+
+            a,
+            p {
+                color: #fff;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
+}

@@ -47,6 +47,7 @@
     "Appeals": {
         "title": "Murojatlar",
         "leave_message": "Murojaat qoldiring",
+        "forAppeal": "Bog'lanish uchun",
         "name": "Ism",
         "phone": "Telefon raqam",
         "email": "Electron pochta",
@@ -65,7 +66,10 @@
         "resolved": "Hal qilingan arizalar",
         "incoming": "Kelib tushgan arizalar",
         "explained": "Huquqiy tushuntirish berildi",
-        "rejected": "Rad etilgan arizalar"
+        "rejected": "Rad etilgan arizalar",
+        "ourEmail": "Elektron pochta",
+        "ourPhone": "Telefon raqam",
+        "ourAddress": "Manzil"
     },
     "Global": {
         "useful_links": "Foydali havolalar",

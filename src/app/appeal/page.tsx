@@ -3,8 +3,14 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import Links from "@/sections/common/Links";
 import BreadCrumb from "@/components/shared/BreadCrumb";
-import { useApiMutation } from "@/hooks/useApi";
+import { useApiMutation, useApiQuery } from "@/hooks/useApi";
+import { ProjectsResponse } from "@/types";
 import toast, { Toaster } from 'react-hot-toast';
+import { Mail, PhoneCall, MapPin } from 'lucide-react'
+
+import style from "./style.module.scss";
+import { get } from "lodash";
+import Link from "next/link";
 
 interface FormData {
   full_name: string;
@@ -29,6 +35,9 @@ const Applications = () => {
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const { data } = useApiQuery<ProjectsResponse>(
+    "/base/contact/",
+  );
   const mutation = useApiMutation<{ success: boolean }, FormData>('/appeal/');
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -106,14 +115,37 @@ const Applications = () => {
     { title: "appeals", path: "/appeals" },
   ];
 
-  const googleMapsUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1902.0195047210639!2d69.27072441899185!3d41.30758629894644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b005729f72f%3A0x3e7b6d1fd781628f!2sSenate%20of%20Uzbekistan!5e0!3m2!1sen!2s!4v1733605729529!5m2!1sen!2s`;
+  console.log(data);
+
+
+  const googleMapsUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1902.0195047210639!2d69.27074041899185!3d41.30758629894644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b005729f72f%3A0x3e7b6d1fd781628f!2sSenate%20of%20Uzbekistan!5e0!3m2!1sen!2s!4v1733605729529!5m2!1sen!2s`;
   return (
     <section>
       <Toaster position="top-right" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8 lg:py-16">
           <BreadCrumb items={elements} type={0} />
-          <h2 className="text-2xl sm:text-3xl lg:text-[36px] text-[#2C2B38] font-bold mt-6 mb-8 lg:mb-[56px]">
+          <h2 className="text-2xl text-center sm:text-3xl lg:text-[36px] text-[#2C2B38] font-bold mt-6 mb-8 lg:mb-[56px]">
+            {t('forAppeal')}
+          </h2>
+          <div className={style.contact}>
+            <div className={style.contactItem}>
+              <Mail size={40} />
+              <b>{t('ourEmail')}</b>
+              <Link href={`mailto:${get(data, 'result.email', '')}`}>{get(data, 'result.email', '')}</Link>
+            </div>
+            <div className={style.contactItem}>
+              <PhoneCall size={40} />
+              <b>{t('ourPhone')}</b>
+              <Link href={`tel:${get(data, 'result.phone_number', '')}`}>{get(data, 'result.phone_number', '')}</Link>
+            </div>
+            <div className={style.contactItem}>
+              <MapPin size={40} />
+              <b>{t('ourAddress')}</b>
+              <p>{get(data, 'result.address', '')}</p>
+            </div>
+          </div>
+          <h2 className="text-2xl text-center sm:text-3xl lg:text-[36px] text-[#2C2B38] font-bold mt-[56px] mb-8 lg:mb-[56px]">
             {t('leave_message')}
           </h2>
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">

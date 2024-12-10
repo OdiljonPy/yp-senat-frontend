@@ -31,6 +31,8 @@ const Comissions = () => {
             <div
               className={clsx(style.item, index % 2 && style.reverse)}
               key={item.id}
+              data-aos="flip-up"
+              data-aos-delay={index * 50}
               onClick={() => handleClick(index, item.id)}
             >
               <Image

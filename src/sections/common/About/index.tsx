@@ -54,7 +54,7 @@ const About = ({
                 )}
                 key={slide.id}
               >
-                <div className={style.imageBox}>
+                <div data-aos="fade-right" className={style.imageBox}>
                   <Image
                     src={slide.image}
                     alt={`${slide.id}`}
@@ -62,7 +62,7 @@ const About = ({
                     height={500}
                   />
                 </div>
-                <div className={style.content}>
+                <div data-aos="fade-left" className={style.content}>
                   <h3>{commissions ? "Kommissiya haqida ma’lumot" : "Biz haqimizda"}</h3>
                   <p>{stripHtml(commissions?.result.description ? commissions?.result.description : data?.result.short_description)}</p>
                   {

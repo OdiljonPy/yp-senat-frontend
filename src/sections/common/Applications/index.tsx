@@ -2,6 +2,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { useApiQuery } from '@/hooks/useApi';
+// import CountUp from 'react-countup';
 import clsx from "clsx";
 import Title from "@/components/shared/Title";
 import { useRouter } from "next/navigation";
@@ -27,7 +28,10 @@ const Applications = () => {
     <section className={clsx("container", style.applications)}>
       <div className={style.content}>
         <div data-aos="fade-up" className={style.item}>
-          <h5>{data?.result.resolved_appeals}</h5>
+          <h5>
+            {/* <CountUp duration={2.75} end={Number(data?.result.resolved_appeals)} /> */}
+            {data?.result.resolved_appeals}
+          </h5>
           <p>{t('resolved')}</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="100" className={style.item}>
