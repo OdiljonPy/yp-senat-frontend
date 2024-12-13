@@ -111,7 +111,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-[13px]">
               <b>{t("email")}:</b>
-              <Link href="mailto:hello@thebox">{data?.result?.email}</Link>
+              <Link href={`mailto:${data?.result?.email}`}>{data?.result?.email}</Link>
             </div>
           </div>
         </div>
